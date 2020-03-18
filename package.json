@@ -1,0 +1,29 @@
+{
+  "name": "discordbot",
+  "version": "1.0.0",
+  "description": "A Discord Bot ",
+  "main": "boot.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ruviks/DiscordBot.git"
+  },
+  "keywords": [
+    "bot",
+    "Discord"
+  ],
+  "author": "Ruvik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ruviks/DiscordBot/issues"
+  },
+  "homepage": "https://github.com/Ruviks/DiscordBot#readme",
+  "dependencies": {
+    "discord.js": "^12.0.2"
+  }
+}
