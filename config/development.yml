@@ -1,0 +1,7 @@
+db:
+  host: 'localhost'
+  username: 'root'
+  password: 'password'
+
+discord:
+  api_key: ''

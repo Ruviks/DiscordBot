@@ -1,2 +1,6 @@
+const config =  require('config');
 
-console.log(process.env.DISCORD_BOT_TOKEN)
+const discordConfig = config.get('discord')
+
+
+console.log(process.env.DISCORD_BOT_TOKEN || discordConfig.api_key)
