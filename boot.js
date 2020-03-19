@@ -14,9 +14,7 @@ client.registry
         ['misc', 'miscellaneous'],
     ])
     .registerDefaultGroups()
-    .registerDefaultCommands({
-        help: true, ping: true
-    })
+    .registerDefaultCommands()
     .registerCommandsIn(path.join(__dirname, 'commands'));
 client.once('ready', () => {
     console.log(`Logged in as ${client.user.tag}! (${client.user.id})`);
