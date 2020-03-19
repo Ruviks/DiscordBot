@@ -1,10 +1,8 @@
 const config = require('config');
 const discordConfig = config.get('discord')
-const Discord = require('discord.js');
-const { CommandoClient } = require('discord.js-commando');
 const path = require('path');
+const { CommandoClient, SQLiteProvider } = require('discord.js-commando');
 const client = new CommandoClient({
-    commandPrefix: '?',
     owner: process.env.OWNER_ID || null,
     invite: 'https://discord.gg/FkxwyzS',
 });
@@ -16,11 +14,19 @@ client.registry
         ['misc', 'miscellaneous'],
     ])
     .registerDefaultGroups()
-    .registerDefaultCommands({ help: true, ping: true })
+    .registerDefaultCommands({
+        help: true, ping: true
+    })
     .registerCommandsIn(path.join(__dirname, 'commands'));
 client.once('ready', () => {
     console.log(`Logged in as ${client.user.tag}! (${client.user.id})`);
     client.user.setActivity('with Commando');
 });
+
+const sqlite = require('sqlite');
+client.setProvider(
+    sqlite.open(path.join(__dirname, 'settings.sqlite3')).then(db => new SQLiteProvider(db))
+).catch(console.error);
+
 client.on('error', console.error);
 client.login(token);
