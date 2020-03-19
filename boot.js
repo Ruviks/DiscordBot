@@ -25,7 +25,7 @@ client.once('ready', () => {
 
 const sqlite = require('sqlite');
 client.setProvider(
-    sqlite.open(path.join(__dirname, 'settings.sqlite3')).then(db => new SQLiteProvider(db))
+    sqlite.open(path.join(__dirname, 'db/settings.sqlite3')).then(db => new SQLiteProvider(db))
 ).catch(console.error);
 
 client.on('error', console.error);
