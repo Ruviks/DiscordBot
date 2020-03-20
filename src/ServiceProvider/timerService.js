@@ -7,7 +7,7 @@ module.exports = async function SetTimer(message, { init, interval }) {
     let x = setInterval(async () => {
 
         _init_ = _init_ - interval;
-        if (_init_ <= 0) { await messageobject.edit(timerEmbed(red, `Timer Finished`));; clearInterval(x); }
+        if (_init_ <= 0) { await messageobject.edit(timerEmbed(red, `Timer Finished`)); clearInterval(x); }
         else
             await messageobject.edit(timerEmbed(orange, `${_init_} seconds left`));
 

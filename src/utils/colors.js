@@ -1,3 +1,5 @@
-exports.green = "#34eb46"
-exports.orange = "#ebab34"
-exports.red = '#eb3434'
+module.exports = {
+    green: "#34eb46",
+    orange: "#ebab34",
+    red: '#eb3434'
+}
