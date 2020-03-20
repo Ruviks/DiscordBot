@@ -11,18 +11,20 @@ module.exports = class channelPurge extends Command {
                     key: 'number',
                     prompt: 'How many messages would you like to delete?',
                     type: 'integer',
-                    default: 0
+                    default: 0,
+                    validate: x => x >= 0
                 },],
         });
     }
     run(message, { number }) {
         if (number == 0) {
-            let channel = message.channel, parent = message.channel.parent, rawposition = message.channel.rawposition, guild = message.guild;
+            let channel = message.channel,
+                guild = message.guild;
 
             channel.delete()
                 .then((x) => {
 
-                    guild.channels.create(x.name, { parent: parent, position: x.rawPosition })
+                    guild.channels.create(x.name, { topic: x.topic, parent: x.parent, position: x.rawPosition, nsfw: x.nsfw, rateLimitPerUser: x.rateLimitPerUser })
                         .then(() => console.log(`Channel purged successfully`))
                 })
                 .catch(console.error)
