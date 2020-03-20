@@ -1,11 +1,12 @@
 const { Command } = require('discord.js-commando');
-module.exports = class channelPurge extends Command {
+module.exports = class channelPrune extends Command {
     constructor(client) {
         super(client, {
-            name: 'purge',
+            name: 'prune',
             group: 'misc',
-            memberName: 'purge',
+            memberName: 'prune',
             description: 'Deletes messages  of the channel.',
+            guildOnly: true,
             args: [
                 {
                     key: 'number',
@@ -25,9 +26,8 @@ module.exports = class channelPurge extends Command {
                 .then((x) => {
 
                     guild.channels.create(x.name, { topic: x.topic, parent: x.parent, position: x.rawPosition, nsfw: x.nsfw, rateLimitPerUser: x.rateLimitPerUser })
-                        .then(() => console.log(`Channel purged successfully`))
-                })
-                .catch(console.error)
+                        .then((x) => console.log(`Channel purged successfully at ${x.guild.name}`))
+                }).catch(console.error)
                 .catch(console.error);
             return null;
         }
