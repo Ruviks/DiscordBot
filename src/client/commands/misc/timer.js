@@ -11,19 +11,19 @@ module.exports = class TimerCommand extends Command {
                 {
                     key: 'init',
                     prompt: 'What initial time would you like to set?',
-                    type: 'string',
+                    type: 'integer',
                 },
                 {
                     key: 'interval',
-                    prompt: 'What interval  would you like to set?',
-                    type: 'string',
+                    prompt: 'What interval  would you like to set between 2-10?',
+                    type: 'integer',
+                    validate: interval => interval >= 2 && interval <= 10
                 },
             ],
         });
     }
     run(message, args) {
         SetTimer(message, args);
-        return message.say(`Timer set for ${args.init} seconds`);
-
+        return null;
     }
 } 
