@@ -30,7 +30,12 @@ client.on('message', msg => {
     if(msg.author.id === client.user.id) {
         return
     }
-    
+
+    if (msg.content === 'uwu') { //This is the original message that triggered the message event.
+        msg.reply("(。U⁄ ⁄ω⁄ ⁄ U。)") //Send a lenny face in response to the user saying "lenny"
+        return;
+    }
+
     filter(msg, {text: msg.content})
 
 })
