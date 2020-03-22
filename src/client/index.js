@@ -1,5 +1,6 @@
 const path = require('path');
 const { CommandoClient, SQLiteProvider } = require('discord.js-commando');
+const filter = require('../ServiceProvider/filterService');
 const sqlite = require('sqlite');
 
 const client = new CommandoClient({
@@ -24,6 +25,15 @@ client.once('ready', () => {
 client.setProvider(
     sqlite.open(path.join(__dirname, '../../db/settings.sqlite3')).then(db => new SQLiteProvider(db))
 ).catch(console.error);
+
+client.on('message', msg => { 
+    if(msg.author.id === client.user.id) {
+        return
+    }
+    
+    filter(msg, {text: msg.content})
+
+})
 
 client.on('error', console.error);
 
