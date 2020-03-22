@@ -8,6 +8,7 @@
   },
   "scripts": {
     "development": "set NODE_ENV=development&&nodemon boot.js",
+    "sync": "node ./db/seeder/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -30,6 +31,7 @@
     "discord.js-commando": "github:discordjs/Commando",
     "js-yaml": "^3.13.1",
     "nodemon": "^2.0.2",
-    "sqlite": "^3.0.3"
+    "sqlite": "^3.0.3",
+    "typeorm": "^0.2.24"
   }
 }
