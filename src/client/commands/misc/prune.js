@@ -19,15 +19,19 @@ module.exports = class channelPrune extends Command {
         });
     }
     async run(message, { number }) {
+        let channel = message.channel;
         if (number == 0) {
-            let x = await message.channel.clone();
-            let c = await message.channel.delete();
-            x.setPosition(c.rawPosition);
+            let pos = channel.position;
+            channel.clone().then(x => {
+                channel.delete().then(y => { x.setPosition(pos); console.log(`Channel deleted successfully `) }
+                )
+            }
+            )
 
 
             return null;
         }
-        message.channel.bulkDelete(number).then(messages => console.log(`Bulk deleted ${messages.size} messages`))
+        channel.bulkDelete(number).then(messages => console.log(`Bulk deleted ${messages.size} messages`))
             .catch(console.error);
         return message.say("Purge successful")
     }
