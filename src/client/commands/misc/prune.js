@@ -27,8 +27,6 @@ module.exports = class channelPrune extends Command {
                 )
             }
             )
-
-
             return null;
         }
         channel.bulkDelete(number).then(messages => console.log(`Bulk deleted ${messages.size} messages`))
