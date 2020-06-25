@@ -38,7 +38,7 @@ module.exports = class TimerCommand extends Command {
     run(message, args) {
         let member = args.member;
         if (member == 0) { member = ` @everyone` }
-        setTimeout(() => { return message.say(`${args.message} ${member}`); }, args.time * 1000)
+        setTimeout(() => { return message.say(` ${member} ${args.message} `); }, args.time * 1000)
 
 
     }

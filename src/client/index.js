@@ -7,7 +7,6 @@ const client = new CommandoClient({
     owner: process.env.OWNER_ID || null,
     invite: 'https://discord.gg/FkxwyzS',
 });
-
 client.registry
     .registerDefaultTypes()
     .registerGroups([
@@ -26,8 +25,8 @@ client.setProvider(
     sqlite.open(path.join(__dirname, '../../db/settings.sqlite3')).then(db => new SQLiteProvider(db))
 ).catch(console.error);
 
-client.on('message', msg => { 
-    if(msg.author.id === client.user.id) {
+client.on('message', msg => {
+    if (msg.author.id === client.user.id) {
         return
     }
 
@@ -36,7 +35,7 @@ client.on('message', msg => {
         return;
     }
 
-    filter(msg, {text: msg.content})
+    filter(msg, { text: msg.content })
 
 })
 
