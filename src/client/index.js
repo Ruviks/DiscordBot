@@ -10,7 +10,7 @@ const client = new CommandoClient({
 client.registry
     .registerDefaultTypes()
     .registerGroups([
-        ['misc', 'miscellaneous'], ['games', 'games']
+        ['misc', 'miscellaneous'], ['games', 'Games']
     ])
     .registerDefaultGroups()
     .registerDefaultCommands()
