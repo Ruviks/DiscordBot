@@ -19,6 +19,7 @@ module.exports = class channelPrune extends Command {
         });
     }
     async run(message, { number }) {
+
         let channel = message.channel;
         if (number == 0) {
             let pos = channel.position;

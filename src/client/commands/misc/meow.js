@@ -10,6 +10,6 @@ module.exports = class MeowCommand extends Command {
     }
 
     run(message) {
-        return message.say('Meow!');
+        return message.say("Meow!")
     }
 };

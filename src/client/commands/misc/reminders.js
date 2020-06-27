@@ -1,4 +1,5 @@
 const { Command } = require('discord.js-commando');
+const timeParser = require('../../../utils/common.js');
 module.exports = class TimerCommand extends Command {
     constructor(client) {
         super(client, {
@@ -27,8 +28,8 @@ module.exports = class TimerCommand extends Command {
             },
             {
                 key: 'time',
-                prompt: 'The delay?',
-                type: 'integer',
+                prompt: 'The delay in "1h 1m 1s" format?',
+                type: 'string',
 
             },
             ]
@@ -38,7 +39,7 @@ module.exports = class TimerCommand extends Command {
     run(message, args) {
         let member = args.member;
         if (member == 0) { member = ` @everyone` }
-        setTimeout(() => { return message.say(` ${member} ${args.message} `); }, args.time * 1000)
+        setTimeout(() => { return message.say(` ${member} ${args.message} `); }, timeParser(args.time) * 1000)
 
 
     }
