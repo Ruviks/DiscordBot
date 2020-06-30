@@ -1,10 +1,11 @@
 const { Command } = require('discord.js-commando');
 const ytdl = require('ytdl-core');
+const { voice } = require('../..');
 module.exports = class play extends Command {
     constructor(client) {
         super(client, {
             name: 'play',
-            group: 'misc',
+            group: 'music',
             memberName: 'play',
             description: 'Plays music from youtube',
             args: [
@@ -17,9 +18,13 @@ module.exports = class play extends Command {
         });
     }
     async run(message, args) {
+        const voiceChannel = message.member.voice.channel;
+        if (!voiceChannel) return message.say('Join a channel and try again');
         const stream = ytdl(args.link, { filter: 'audioonly' });
-        const connection = await message.member.voice.channel.join();
+        const connection = await voiceChannel.join();
         const dispatcher = connection.play(stream);
+        message.guild.musicData.songDispatcher = dispatcher;
+
         return null;
     }
 } 

@@ -1,7 +1,25 @@
 const path = require('path');
+const { Structures } = require('discord.js');
 const { CommandoClient, SQLiteProvider } = require('discord.js-commando');
 const filter = require('../ServiceProvider/filterService');
 const sqlite = require('sqlite');
+
+Structures.extend('Guild', function (Guild) {
+    class MusicGuild extends Guild {
+        constructor(client, data) {
+            super(client, data);
+            this.musicData = {
+                queue: [],
+                isPlaying: false,
+                nowPlaying: null,
+                songDispatcher: null,
+                volume: 1
+            };
+        }
+    }
+    return MusicGuild;
+});
+
 
 const client = new CommandoClient({
     owner: process.env.OWNER_ID || null,
@@ -10,7 +28,7 @@ const client = new CommandoClient({
 client.registry
     .registerDefaultTypes()
     .registerGroups([
-        ['misc', 'miscellaneous'], ['games', 'Games']
+        ['misc', 'miscellaneous'], ['games', 'Games'], ['music', 'Music']
     ])
     .registerDefaultGroups()
     .registerDefaultCommands()
