@@ -55,7 +55,19 @@ client.on('message', msg => {
 
     filter(msg, { text: msg.content })
 
-})
+});
+client.on('voiceStateUpdate', async (___, newState) => {
+
+    if (
+        newState.member.user.bot &&
+        !newState.channelID &&
+        newState.guild.musicData.songDispatcher &&
+        newState.member.user.id == client.user.id
+    ) {
+        newState.guild.musicData.queue.length = 0;
+        newState.guild.musicData.songDispatcher.end();
+    }
+});
 
 client.on('error', console.error);
 
