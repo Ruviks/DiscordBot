@@ -1,7 +1,7 @@
 db:
-  host: 'localhost'
-  username: 'root'
-  password: 'password'
+  host: "localhost"
+  username: "root"
+  password: "password"
 
 discord:
-  api_key: 'Njg5Nzk5NTAwNjE2OTU3OTk0.XnIMBg.KJVct_LvO1jQQ8jyIfE__7xgEF4'
+  api_key: "Njg5Nzk5NTAwNjE2OTU3OTk0.Xv2c5A.yRaLHZfeMGMtQHWdiLCCcCSDtvo"

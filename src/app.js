@@ -12,10 +12,12 @@ class App {
             type: "sqlite",
             database: "./db/settings.sqlite3",
             entities: [
-                new EntitySchema(require('./entity/BadWords'))
+                new EntitySchema(require('./entity/BadWords')),
+                new EntitySchema(require('./entity/users')),
+                new EntitySchema(require('./entity/userItems'))
             ]
         }).then(connection => connection.synchronize())
-        
+
         this.client.login(token);
     }
 }
