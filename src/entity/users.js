@@ -10,6 +10,10 @@ module.exports = {
             default: 0,
 
         },
+        cooldown: {
+            type: "int",
+            default: 0
+        }
     },
     relations: {
         userItems: {

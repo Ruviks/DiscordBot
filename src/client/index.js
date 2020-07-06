@@ -28,7 +28,7 @@ const client = new CommandoClient({
 client.registry
     .registerDefaultTypes()
     .registerGroups([
-        ['misc', 'miscellaneous'], ['games', 'Games'], ['music', 'Music']
+        ['misc', 'miscellaneous'], ['games', 'Games'], ['music', 'Music'], ['economy', "Economy"]
     ])
     .registerDefaultGroups()
     .registerDefaultCommands()

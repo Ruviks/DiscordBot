@@ -14,7 +14,8 @@ class App {
             entities: [
                 new EntitySchema(require('./entity/BadWords')),
                 new EntitySchema(require('./entity/users')),
-                new EntitySchema(require('./entity/userItems'))
+                new EntitySchema(require('./entity/userItems')),
+                new EntitySchema(require("./entity/currencyShop")),
             ]
         }).then(connection => connection.synchronize())
 
