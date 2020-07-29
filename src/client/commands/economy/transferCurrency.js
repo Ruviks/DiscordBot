@@ -14,13 +14,14 @@ module.exports = class transferCurrency extends Command {
             }, {
                 key: 'amount',
                 prompt: 'amount of money to transfer',
-                type: 'integer'
-
+                type: 'integer',
+                validate: x => x > 0
             }],
 
         })
     }
     async run(message, { member, amount }) {
+        if (member.id = message.author.id) return
         const usersdb = typeorm.getConnection().getRepository("users");
         const user = await usersdb.findOne(message.author.id);
         if (!user) return message.say("You do not have enough money!");

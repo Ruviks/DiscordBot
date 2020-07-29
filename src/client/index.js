@@ -25,6 +25,7 @@ const client = new CommandoClient({
     owner: process.env.OWNER_ID || null,
     invite: 'https://discord.gg/FkxwyzS',
 });
+//client.on("debug", (msg) => { console.log(msg) })
 client.registry
     .registerDefaultTypes()
     .registerGroups([
