@@ -4,6 +4,18 @@ const { CommandoClient, SQLiteProvider } = require('discord.js-commando');
 const filter = require('../ServiceProvider/filterService');
 const sqlite = require('sqlite');
 
+Array.prototype.remove = function () {
+    var what, a = arguments, L = a.length, ax;
+    while (L && this.length) {
+        what = a[--L];
+        while ((ax = this.indexOf(what)) !== -1) {
+            this.splice(ax, 1);
+        }
+    }
+    return this;
+};
+
+
 Structures.extend('Guild', function (Guild) {
     class MusicGuild extends Guild {
         constructor(client, data) {
