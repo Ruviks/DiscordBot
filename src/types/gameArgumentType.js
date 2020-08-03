@@ -4,12 +4,12 @@ const avaliableGames = require('./avaliableGames');
 class gameArgumentType extends commando.ArgumentType {
 
     constructor(client) {
-        super(client, 'game');
+        super(client, 'name');
     }
 
     validate(val) {
-        const avaliableGames = JSON.parse(fs.readFileSync("./games.json"))
-        return val.toLowerCase() === 'dank';
+        const values = Object.values(avaliableGames);
+        return values.includes(val) ? true : false
     }
 
     parse(val) {

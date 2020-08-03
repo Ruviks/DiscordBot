@@ -46,7 +46,7 @@ module.exports = async function searchforServer(game) {
     if (i == 4) continue;
     keys.push(clean(keycols[i].textContent));
   }
-  for (let i = 1; i < rows.length-1; i++) {
+  for (let i = 1; i < rows.length - 1; i++) {
     let row = rows[i];
     let cols = row.getElementsByTagName("td");
     let data = {};
