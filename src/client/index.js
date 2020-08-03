@@ -41,9 +41,10 @@ const client = new CommandoClient({
 client.registry
     .registerDefaultTypes()
     .registerGroups([
-        ['misc', 'miscellaneous'], ['games', 'Games'], ['music', 'Music'], ['economy', "Economy"]
+        ['misc', 'miscellaneous'], ['games', 'Games'], ['music', 'Music'], ['economy', "Economy"], ['gametracker', "GameTracker"]
     ])
     .registerDefaultGroups()
+
     .registerDefaultCommands()
     .registerCommandsIn(path.join(__dirname, './commands'));
 
