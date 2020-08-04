@@ -31,7 +31,7 @@ module.exports = class FindGameServers extends Command {
 
             // let result = await getServerInfo(server['IP:Port']);
 
-            value += "IP:" + `**${server['IP:Port']}**` + "\xa0\xa0\xa0\xa0\xa0\xa0" + "Players:" + `**${server['Players▲']}**` + "\xa0\xa0\xa0\xa0\xa0\xa0" + "Map:" + `**${server['Server Map']}**` //+ "\xa0\xa0\xa0\xa0\xa0\xa0" + "Status: " + `**${result.server_summary.Status}**` + "\n"
+            value += "IP:" + `**${server['IP:Port']}**` + "\xa0\xa0\xa0\xa0\xa0\xa0" + "Players:" + `**${server['Players▲']}**` + "\xa0\xa0\xa0\xa0\xa0\xa0" + "Map:" + `**${server['Server Map']}**` + "\n" //+ "\xa0\xa0\xa0\xa0\xa0\xa0" + "Status: " + `**${result.server_summary.Status}**` + "\n"
         }
         const exampleEmbed = new MessageEmbed()
             .setColor('#0099ff')
