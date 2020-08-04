@@ -23,7 +23,7 @@ function extractGifName(gifurl) {
 }
 
 module.exports = async function searchforServer(game) {
-  const url = `https://www.gametracker.com/search/${game}/?&searchipp=50#search`;
+  const url = `https://www.gametracker.com/search/${game}/?&sort=3&order=DESC&searchipp=25#search`;
   let res = await axios.default({
     method: "GET",
     url: url,
