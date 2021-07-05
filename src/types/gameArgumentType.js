@@ -1,5 +1,6 @@
 const commando = require("discord.js-commando");
-const avaliableGames = require('./avaliableGames');
+const fs = require('fs');
+const avaliableGames = JSON.parse(fs.readFileSync("src/types/gamedata.json"))
 
 class gameArgumentType extends commando.ArgumentType {
 
