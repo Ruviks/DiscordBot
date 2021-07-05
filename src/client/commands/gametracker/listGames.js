@@ -1,6 +1,8 @@
+const path = require("path");
 const { Command } = require('discord.js-commando');
-const avaliableGames = require('../../../types/avaliableGames');
-const searchservers = require('../../../gtAPI/searchservers');
+const fs = require('fs');
+const avaliableGames = JSON.parse(fs.readFileSync("src/assets/gamedata.json"))
+const searchservers = require(path.resolve("src/gtAPI/searchservers.js"));
 const { MessageEmbed } = require("discord.js");
 module.exports = class FindGameServers extends Command {
     constructor(client) {

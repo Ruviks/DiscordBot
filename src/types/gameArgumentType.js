@@ -1,10 +1,10 @@
-const commando = require("discord.js-commando");
 const fs = require('fs');
-const avaliableGames = JSON.parse(fs.readFileSync("src/types/gamedata.json"))
-
-class gameArgumentType extends commando.ArgumentType {
-
+const path = require("path");
+const {ArgumentType} = require("discord.js-commando");
+const avaliableGames = JSON.parse(fs.readFileSync(path.resolve("src/assets/gamedata.json")));
+class GameArgumentType extends ArgumentType {
     constructor(client) {
+        
         super(client, 'name');
     }
 
@@ -17,5 +17,4 @@ class gameArgumentType extends commando.ArgumentType {
         return val;
     }
 }
-
-module.exports = gameArgumentType;
+module.exports = GameArgumentType;
