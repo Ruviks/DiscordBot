@@ -44,7 +44,7 @@ client.registry
         ['misc', 'miscellaneous'], ['games', 'Games'], ['music', 'Music'], ['economy', "Economy"], ['gametracker', "GameTracker"]
     ])
     .registerDefaultGroups()
-    .registerTypesIn('C:/Users/Ruvik/Desktop/DiscordBot/src/types')
+    .registerTypesIn('/src/types')
     .registerDefaultCommands()
     .registerCommandsIn(path.join(__dirname, './commands'));
 
