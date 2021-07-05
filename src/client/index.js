@@ -34,8 +34,7 @@ Structures.extend('Guild', function (Guild) {
 
 
 const client = new CommandoClient({
-    owner: process.env.OWNER_ID || null,
-    invite: 'https://discord.gg/FkxwyzS',
+    owner: process.env.OWNER_ID || null
 });
 //client.on("debug", (msg) => { console.log(msg) })
 client.registry
@@ -44,7 +43,7 @@ client.registry
         ['misc', 'miscellaneous'], ['games', 'Games'], ['music', 'Music'], ['economy', "Economy"], ['gametracker', "GameTracker"]
     ])
     .registerDefaultGroups()
-    .registerTypesIn('/src/types')
+    .registerTypesIn('src/types')
     .registerDefaultCommands()
     .registerCommandsIn(path.join(__dirname, './commands'));
 
