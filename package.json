@@ -10,6 +10,7 @@
     "test": "tests"
   },
   "scripts": {
+    "start": "node boot.js",
     "development": "set NODE_ENV=development&&nodemon boot.js",
     "sync": "node ./db/seeder/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
