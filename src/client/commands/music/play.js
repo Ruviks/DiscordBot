@@ -47,7 +47,9 @@ module.exports = class PlayCommand extends Command {
                 const dispatcher = connection
                     .play(
                         ytdl(queue[0].url, {
-                            quality: 'highestaudio'
+                            filter: 'audioonly',
+                            quality: 'highestaudio',
+                            highWaterMark: 1 << 25
                         })
                     )
                     .on('start', function () {
